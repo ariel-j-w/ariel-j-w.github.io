@@ -1,16 +1,25 @@
 body{
-  /*Photo by Olia Gozha on Unsplash*/
-  background-image: url("assets/background.jpg") no-repeat center fixed;
   background-color: #ad7a99
 }
 
 h1{
   font-family: sans-serif;
-  text-align: center;
-  font-size: 20pt
+  text-align: left;
+  font-size: 48pt;
+}
+
+p{
+  font-family: sans-serif;
+  font-size: 16pt;
+  text-align: left;
 }
 
 img{
   border-radius: 50%;
-  width = 150px;
+  width = 30%;
+}
+
+#welcome{
+  width = 80%;
+  height = 550px;
 }
