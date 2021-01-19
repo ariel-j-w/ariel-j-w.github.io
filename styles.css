@@ -1,7 +1,7 @@
 body{
   /*Photo by Olia Gozha on Unsplash*/
   background-image: url("assets/background.jpg") no-repeat center fixed;
-  background-size: contain;
+  background-size: cover;
   background-color: #e0e0e0
 }
 
