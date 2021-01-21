@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Ariel Wentworth | Projects</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../styles.css">
+  <link rel="icon" href="../assets/headshot.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@600&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/fontawesome-free-5.15.1-web/css/fontawesome.min.css">
+</head>
+
+<body>
+  <header>
+    <h1>Global State of Democracy Project</h1>
+    <p class="subtitle">A visual and computational exploration of the the Global State of Democracy Index</p>
+  </header>
+
+<div class="content">
+  <div class="shaded-gray">
+    <h2>Motivation</h2>
+    <p class="p-content">
+      Last semester I took a class on religious freedom and became super intrigued with the content. Inevitably, a class like that spurred lots of conversations about democracy on the international stage. My professor made claims such as "all of freedoms flow from religious liberty." We researched and discussed many examples of gender inequality. Discussions such as these made me very curious about the state of international freedom. When I discovered the <em>Global State of Democracy Index</em>, I immediately knew I wanted to dig into it and see if helpful visualizations or models could answer some of the questions I'd been contemplating.
+    </p>
+  </div>
+
+  <div>
+    <h2>Dataset</h2>
+    <p class="p-content">
+      The <em>Global State of Democracy Index </em> (the GSoDi):
+      <ul>
+        <li>measures 29 aspects of democracy</li>
+        <li>has data from 1975-2019 (inclusive) </li>
+        <li>covers 163 countries</li>
+        <li>is an aggregation of data from multiple sources, gathered and standardized by the International Institute for Democracy and Electoral Assistance (IDEA)</li>
+        <!--Add more information about how the variables are broken down, link to lucidchart-->
+      </ul>
+    </p>
+  </div>
+
+  <div class="shaded-gray">
+    <h2>Analysis</h2>
+    <h3>Relative Measure of Democracy</h3>
+    <div class="p-content">
+      <p>
+        One distinctive of the GSoDi is lack of an aggregate measure present. Though they had their reasons for excluding such an aggregation, I do think this index can provide some valuable insight if we create one. For the purposes of this project, I used k-means clustering to identify a relative measure of democracy using the most recently available data. In this model, countries were ranked on a sliding scale from 1 (most democratic) to 5 (least democratic).
+      </p>
+      <div class='tableauPlaceholder' id='viz1611186279598' style='position: relative'>
+        <noscript>
+          <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GS&#47;GSoDi&#47;Democracy&#47;1_rss.png' style='border: none' /></a>
+        </noscript>
+        <object class='tableauViz'  style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='GSoDi&#47;Democracy' />
+          <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GS&#47;GSoDi&#47;Democracy&#47;1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en' />
+        </object>
+      </div>
+      <!--Add link to page with more information about this viz-->
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+
+<script type='text/javascript'>
+  var divElement = document.getElementById('viz1611186279598');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if ( divElement.offsetWidth > 800 ) {
+    vizElement.style.width='1000px';vizElement.style.height='827px';}
+  else if ( divElement.offsetWidth > 500 ) {
+    vizElement.style.width='1000px';vizElement.style.height='827px';}
+  else {
+    vizElement.style.width='100%';vizElement.style.height='727px';
+  }
+  var scriptElement = document.createElement('script');
+  scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+</body>
+
+</html>
