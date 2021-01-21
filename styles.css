@@ -2,10 +2,8 @@
   --darkest: #454545;
   --medium-gray: #5C5C5C;
   --light-gray: #F3F5F7;
-  --yellow: #FFBC42;
+  --yellow: #FFC857;
   --purple: #AD7A99;
-  --light-yellow: #FFE2AD;
-  --light-purple: #E8D9E2;
 }
 
 body{
@@ -93,12 +91,6 @@ ul{
 .p-content{
   padding-left: 205px;
 }
-
-.shaded-yellow{
-  background-color: var(--light-yellow);
-  padding: 3px 30px 10px 30px;
-  margin-left: -40px;
-  margin-right: -40px;}
 
 .shaded-gray{
   background-color: var(--light-gray);
