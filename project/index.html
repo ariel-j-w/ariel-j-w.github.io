@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Ariel Wentworth | Projects</title>
+  <title>Ariel Wentworth | Project</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../styles.css">
   <link rel="icon" href="../assets/headshot.ico">
@@ -34,6 +34,7 @@
         <li>measures 29 aspects of democracy</li>
         <li>has data from 1975-2019 (inclusive) </li>
         <li>covers 163 countries</li>
+        <li>quantifies each feature in the dataset on a scale from 0 to 1, where 1 is always the most democratic response</li>
         <li>is an aggregation of data from multiple sources, gathered and standardized by the International Institute for Democracy and Electoral Assistance (IDEA)</li>
         <!--Add more information about how the variables are broken down, link to lucidchart-->
       </ul>
@@ -42,14 +43,16 @@
 
   <div class="shaded-gray">
     <h2>Analysis</h2>
-    <h3>Relative Measure of Democracy</h3>
     <div class="p-content">
+      <h3>Comparative Measure of Democracy</h3>
       <p>
         One distinctive of the GSoDi is lack of an aggregate measure present. Though they had their reasons for excluding such an aggregation, I do think this index can provide some valuable insight if we create one. For the purposes of this project, I used k-means clustering to identify a relative measure of democracy using the most recently available data. In this model, countries were ranked on a sliding scale from 1 (most democratic) to 5 (least democratic).
       </p>
       <div class='tableauPlaceholder' id='viz1611186279598' style='position: relative'>
         <noscript>
-          <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GS&#47;GSoDi&#47;Democracy&#47;1_rss.png' style='border: none' /></a>
+          <a href='#'>
+            <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GS&#47;GSoDi&#47;Democracy&#47;1_rss.png' style='border: none' class="viz">
+          </a>
         </noscript>
         <object class='tableauViz'  style='display:none;'>
           <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
@@ -68,11 +71,53 @@
       </div>
       <!--Add link to page with more information about this viz-->
     </div>
+
+    <div class="p-content">
+      <h3>Predictors of Gender Equality</h3>
+      <p>
+        As I alluded to previously, one of my main fascinations with this dataset was all of the information related to gender equality. I wanted to see if we could identify indicators that commonly predicted gender equality. To investigate this, I used decision tree analysis to narrow down which indicators in the GSoDi were most important for predicting the level of gender equality. The analysis yielded the following as the most important variables.
+      </p>
+      <img src="assets/genderEquality.png" alt="Variable Importance Chart for Gender Equality" class="viz">
+    </div>
+
+    <div class="p-content">
+      <h3>Freedom of Religion and Other Fundamental Rights</h3>
+      <p>
+        One of the reasons I was originally interested in this dataset was to evaluate a claim made by one of my professors: that religious freedom was an indicator of all other rights, and a decline in religious freedom is a foreshadowing of decline in other fundamental rights. To explore this claim, I made the following bubble chart (in a style very remniscent of Hans Rosling's work). Below, feel free to interact with the visualization and watch how religious freedom relates to other fundamental rights. The bubbles each represent countries, sized according to their population. In the upper left, you can select which fundamental right to be measured on the y-axis. On the right, select any year between 1975 and 2019. Hover over an individual bubble to see details about that country.
+      </p>
+      <p>
+        <em>Tip:</em> To see an animation throughout all present years, pull the year slider (found on the right side) all the way to the earliest position. Then, click once on the right arrow <em>below</em> the slider.
+      </p>
+      <div class='tableauPlaceholder' id='viz1611240558448' style='position: relative'>
+        <noscript>
+          <a href='#'>
+            <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReligionRights&#47;Religion&#47;1_rss.png' style='border: none' />
+          </a>
+        </noscript>
+        <object class='tableauViz'  style='display:none;'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='ReligionRights&#47;Religion' />
+          <param name='tabs' value='no' /><param name='toolbar' value='yes' />
+          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReligionRights&#47;Religion&#47;1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en' />
+        </object>
+      </div>
+    </div>
+
+
   </div>
 </div>
 <div class="footer"></div>
 
 <script type='text/javascript'>
+  /*Democracy choropleth*/
   var divElement = document.getElementById('viz1611186279598');
   var vizElement = divElement.getElementsByTagName('object')[0];
   if ( divElement.offsetWidth > 800 ) {
@@ -84,6 +129,20 @@
   }
   var scriptElement = document.createElement('script');
   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+  /*Religious freedom bubble chart*/
+  var divElement = document.getElementById('viz1611240558448');
+  var vizElement = divElement.getElementsByTagName('object')[0];
+  if ( divElement.offsetWidth > 800 ) {
+     vizElement.style.width='1000px';vizElement.style.height='827px';
+   } else if ( divElement.offsetWidth > 500 ) {
+     vizElement.style.width='1000px';vizElement.style.height='827px';
+   } else {
+     vizElement.style.width='100%';vizElement.style.height='727px';
+   }
+   var scriptElement = document.createElement('script');
+   scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+   vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
 </body>
 
