@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Ariel Wentworth | Democracy</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../styles.css">
+  <link rel="icon" href="../../assets/headshot.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/fontawesome-free-5.15.1-web/css/all.css">
+</head>
+
+<body>
+  <header class="yellow">
+    <h1>Comparative measure of democracy</h1>
+    <p class="subtitle">An in-depth look at the meaning and implications of this measure</p>
+  </header>
+
+  <div class="content">
+    <div class="shaded-gray">
+      <h2>Democracy Measure</h2>
+      <div class="p-content">
+        <p>
+          I formed this measure of democracy by using k-means clustering to identify which countries were, comparatively, more or less democratic according to the most recently available data. This model ranks countries on a sliding scale from 1 (most democratic) to 5 (least democratic).
+        </p>
+        <div class='tableauPlaceholder viz' id='viz1611243526203' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Comparativemeasureofdemocracy&#47;Democracy&#47;1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='Comparativemeasureofdemocracy&#47;Democracy' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Comparativemeasureofdemocracy&#47;Democracy&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
+        <!--Add more about implications, compare with EIU, etc.-->
+      </div>
+    </div>
+
+    <div>
+      <h2>Model Building</h2>
+      <div class="p-content">
+        <h3>K-Means Clustering</h3>
+        <h3>Dealing with Missing Values</h3>
+        <p>
+          I formed this measure of democracy by using k-means clustering to identify which countries were, comparatively, more or less democratic according to the most recently available data. This model ranks countries on a sliding scale from 1 (most democratic) to 5 (least democratic).
+        </p>
+      </div>
+    </div>
+
+    <div class="shaded-gray">
+      <h2>Dig Deeper</h2>
+      <div class="p-content">
+        <p>
+          Still want to see more of the process? Check out the full code on GitHub!
+        </p>
+        <div class="right">
+          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/exploration.Rmd' class="deeper-link" title="">
+            GitHub Project <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer></footer>
+
+  <script type='text/javascript'>
+    /*Democracy choropleth*/
+    var divElement = document.getElementById('viz1611243526203');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if ( divElement.offsetWidth > 800 ) {
+      vizElement.style.width='1000px';
+      vizElement.style.height='827px';
+    } else if ( divElement.offsetWidth > 500 ) {
+      vizElement.style.width='1000px';
+      vizElement.style.height='827px';
+    } else {
+      vizElement.style.width='100%';
+      vizElement.style.height='727px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+</body>
