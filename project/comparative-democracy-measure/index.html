@@ -8,7 +8,6 @@
   <link rel="icon" href="../../assets/headshot.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato&family=Yusei+Magic&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/fontawesome-free-5.15.1-web/css/all.css">
 </head>
 
 <body>
@@ -22,7 +21,7 @@
       <h2>Democracy Measure</h2>
       <div class="p-content">
         <p>
-          I formed this measure of democracy by using k-means clustering to identify which countries were, comparatively, more or less democratic according to the most recently available data. This model ranks countries on a sliding scale from 1 (most democratic) to 5 (least democratic).
+          One my goals was to produce a visualization that gives, to some degree, a measure of "how democratic" various nations are in comparison to one another. Other examples of similar work would be the EIU democracy index, but (to my knowledge) nobody has tried to identify overall patterns in the demorcacy levels from the GSoDi. I was able to use k-means clustering to produce reasonable classifications of countries on a scale relative only to other countries in the world. Ultimately, the clustering algorithm was able to rank the countries from 1 (most democratic) to 5 (least democratic).
         </p>
         <div class='tableauPlaceholder viz' id='viz1611243526203' style='position: relative'>
           <noscript>
@@ -47,7 +46,19 @@
             <param name='filter' value='publish=yes' />
           </object>
         </div>
-        <!--Add more about implications, compare with EIU, etc.-->
+        <p>
+          As mentioned above, this algorithm serves a purpose unique from the <a href="https://www.eiu.com/topic/democracy-index">EIU Democracy Index</a>. The EIU Democracy index, crafted by the Economic Intelligence Unit, assigns a value between 0 and 10 to each country, where a score of 10 would be a completely democratic regime. The EIU crafts 60 survey questions and uses a <a href="https://en.wikipedia.org/wiki/Democracy_Index#Method">weighted average</a> to determine the final ranking. In this way, the EIU comes up with an "objective" standard of democracy, and compares countries to that pre-determined standard.
+        </p>
+        <p>
+          Of course, the EIU Democracy Index is very well respected, but some further valuable insight can be gained from the <em>Global State of Democracy Index</em>. For instance, I would consider the GSoDi work to be particularly robust, as it draws from multiple different sources for its survey data. This is helpful in counter-acting any unseen bias that may come from the work of a single board of researchers. Furthermore, we should note that the EIU measure has a completely different purpose than the measure that we see here. As noted above, the EIU index focuses on some "objective" standard, while our work here aims for a comparative measure, rooted in measuring democracy in a way that is <em>relative</em> to other countries. Both of these measures can be valuable, and I believe there is a particular nuance to be gained from each.
+        </p>
+        <h3>Further Work</h3>
+        <p>
+          To my knowledge, this measure of democracy is the first of its kind to rely on machine learning for it's conclusions. If nothing else, I believe this work could serve as a launching pad for future work where we allow machine learning and statistics to further inform our analysis of political measures. As we know, humans carry with them inherent bias which can cloud our understanding. While it can be dangerous to allow computations to inform our decisions without human discernment, there is certainly much to be gained by utilizing current technology to boost our analysis.
+        </p>
+        <p>
+          Ultimately, this technology would be most useful in collaboration with field expertise from a political scientist invested in utilizing new research methods such as machine learning. Given that I am not a professional in that field, this work as is should be taken with a grain of salt. However, in the future I would love to either pursue further political training or work with somebody already knowledgeable in the political realm in order to build on this current body of work. Especially in terms of <a href="#missing-values">dealing with missing values</a>, I wonder if these could be handled more rigorously given someone with appropriate background. Additionally, peer review of this work from both machine learning experts and political science experts could refine this method to create something truly valuable.
+        </p>
       </div>
     </div>
 
@@ -55,9 +66,58 @@
       <h2>Model Building</h2>
       <div class="p-content">
         <h3>K-Means Clustering</h3>
-        <h3>Dealing with Missing Values</h3>
         <p>
-          I formed this measure of democracy by using k-means clustering to identify which countries were, comparatively, more or less democratic according to the most recently available data. This model ranks countries on a sliding scale from 1 (most democratic) to 5 (least democratic).
+          As previously mentioned, I used k-means clustering to perform this analysis. I decided to only use the most recent year of data; I think additional ethical considerations would need to be taken if doing this analysis between different years, given that it is inherently a comparative analysis subjective to its own data. That is, scoring a "2" in 2019 might not mean the same thing as scoring a "2" in 2018 depending on how the world as a whole has changed, so any inter-year comparisons seem dangerous to me. Thus, we used 2019 data (the most recently avaiable data as of January 2021, the time of this analysis) for our algorithm.
+        </p>
+
+        <h4>Selecting Data Subset</h4>
+        <p>
+          Our first step in doing this analysis was to decide which level of granularity to include in our clustering algorithm. Though this is a subjective process, it was important to consider a balance between having enough data to yield an interesting analysis and not having such a level of detail that one category overruns the others (looking at the structure of the dataset, <!--add link--> you can see that using the finest level of granularity would heavily bias our analysis towards considering fundamental rights much more than other aspects of democracy). For this reason, I decided to analyze the data at the subdomain level (see <!--add link-->the structure of the dataset for more information), yielding 16 features for clustering:
+          <ul>
+            <li>clean elections</li>
+            <li>inclusive suffrage</li>
+            <li>free political parties</li>
+            <li>elected government</li>
+            <li>access to justice</li>
+            <li>social rights and equality</li>
+            <li>civil liberties</li>
+            <li>effective parliament</li>
+            <li>judicial independence</li>
+            <li>media integrity</li>
+            <li>absence of corruption</li>
+            <li>predictable enforcement</li>
+            <li>civil society participation</li>
+            <li>electoral participation</li>
+            <li>direct democracy</li>
+            <li>local democracy</li>
+          </ul>
+        </p>
+
+        <h3 id="missing-values">Dealing with Missing Values</h3>
+        <p>
+          Though the GSoDi data was generally robust, there were a few missing values at this level of granularity in 2019. Specifically, we had 10 missing values spread across 9 different countries (accounting for 0.6% of our total data). Since k-means clustering relies on the ability to calculate distances between observations, there cannot be any missing values. In general there are two commonly accepted methods for dealing with missing values in k-means: either eliminating any observations with missing values from the analysis (in our case, not including the 9 relevant countries), or assigning each missing value to the average value of the feature. In the latter case, the idea is not that the true value of the missing datum would be exactly the average, but instead that having the missing feature as average would not really allow that missing value to greatly skew what would have otherwise been the classification of that observation.
+        </p>
+        <p>
+          In our case, nearly all of the missing values are for features defined as an aggregation of several variables. In general, these aggregation values are left as missing due to one of their sub-variables being missing. Whenever possible, we will chose reconstruct our relevant missing value, by taking the average of all sub-variables which are not missing. For one variable, however (electoral participation), there were no relevant sub-variables to draw from. The 3 countries missing this value have no other reasonable way to repair the missing value, so we default to the widely accepted practice (discussed above) of using the average from that feature as a stand-in for the data: allowing k-means to run without really allowing this missing value to differentiate the country in question from any other country.
+        </p>
+        <p>
+          Ultimately, the restored missing values were for:
+          <ul>
+            <li><em>Afghanistan</em>: local democracy</li>
+            <li><em>Central African Republic</em>: local democracy</li>
+            <li><em>eSwatini</em>: electoral participation</li>
+            <li><em>Liberia</em>: local democracy</li>
+            <li><em>Malaysia</em>: local democracy</li>
+            <li><em>North Korea</em>: electoral participation</li>
+            <li><em>Palestine</em>: effective parliament</li>
+            <li><em>Somalia</em>: local democracy</li>
+            <li><em>United Arab Emirates</em>: electoral participation, local democracy</li>
+          </ul>
+        </p>
+
+        <h3>Assigning Democracy Scores</h3>
+        <p>
+          After dealing with the missing values, the data was ready for k-means. I used the "elbow method" to ascertain that 4-5 clusters would be appropriate, and ultimately went with 5 clusters for this data. Then, for each cluster center I took the mean of the 16 feature values for that center point. I used the order of these means to assign the clusters in order from "most democratic" to "least democratic." Interestingly, this order aligned exactly with the order of the centers for almost every feature. The only feature for which the cluster centers were not in the same order as the final ranking was electoral participation, which I think is an interesting observation that high electoral participation does not necessarily correlate with other aspects of democracy.
         </p>
       </div>
     </div>

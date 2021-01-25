@@ -36,7 +36,7 @@ h2{
   float: left;
   vertical-align: text-top;
   text-align: right;
-  width: 170px;
+  width: 240px;
   padding-right: 30px;
   /*background-image: linear-gradient(120deg, #ffeac2 0%, #ffbc42 100%);
   background-repeat: no-repeat;
@@ -49,11 +49,16 @@ h3{
   color: var(--medium-gray);
 }
 
+h4{
+  font-family: var(--header-font);
+  font-size: 15pt;
+  color: var(--medium-gray);
+}
+
 p{
   font-family: var(--body-font);
   font-size: 12pt;
   text-align: left;
-  /*padding-bottom: 20px;*/
 }
 
 ul{
@@ -61,11 +66,11 @@ ul{
   font-size: 12pt;
   text-align: left;
   margin-top: -10px;
-  padding-left: 240px;
 }
 
 a{
   text-decoration: none;
+  color: var(--purple);
 }
 
 a:hover{
@@ -112,7 +117,7 @@ footer{
 }
 
 .p-content{
-  padding-left: 205px;
+  padding-left: 280px;
 }
 
 .shaded-gray{
