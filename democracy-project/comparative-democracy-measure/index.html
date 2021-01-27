@@ -34,7 +34,7 @@
         <p>
           One my goals was to produce a visualization that gives, to some degree, a measure of "how democratic" various nations are in comparison to one another. Other examples of similar work would be the EIU democracy index, but (to my knowledge) nobody has tried to identify overall patterns in the demorcacy levels from the GSoDi. I was able to use k-means clustering to produce reasonable classifications of countries on a scale relative only to other countries in the world. Ultimately, the clustering algorithm was able to rank the countries from 1 (most democratic) to 5 (least democratic).
         </p>
-        <div class='tableauPlaceholder viz' id='viz1611780051575' style='position: relative'>
+        <div class='tableauPlaceholder viz' id='viz1611784050989' style='position: relative'>
           <noscript>
             <a href='#'>
               <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;Comparativemeasureofdemocracy&#47;Democracy&#47;1_rss.png' style='border: none' />
@@ -152,14 +152,22 @@
 
   <script type='text/javascript'>
     /*Democracy choropleth*/
-    var divElement = document.getElementById('viz1611780051575');
+    var divElement = document.getElementById('viz1611784050989');
     var vizElement = divElement.getElementsByTagName('object')[0];
     if ( divElement.offsetWidth > 800 ) {
-      vizElement.style.width='1000px';
-      vizElement.style.height='827px';
+      vizElement.style.minWidth='500px';
+      vizElement.style.maxWidth='999px';
+      vizElement.style.width='100%';
+      vizElement.style.minHeight='435px';
+      vizElement.style.maxHeight='935px';
+      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
     } else if ( divElement.offsetWidth > 500 ) {
-      vizElement.style.width='1000px';
-      vizElement.style.height='827px';
+      vizElement.style.minWidth='500px';
+      vizElement.style.maxWidth='999px';
+      vizElement.style.width='100%';
+      vizElement.style.minHeight='435px';
+      vizElement.style.maxHeight='935px';
+      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
     } else {
       vizElement.style.width='100%';
       vizElement.style.height='427px';
