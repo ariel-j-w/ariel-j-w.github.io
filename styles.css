@@ -46,6 +46,10 @@ h3{
   color: var(--medium-gray);
 }
 
+h3.genderEq-analysis{
+  margin-bottom: 0px;
+}
+
 h4{
   font-family: var(--header-font);
   font-size: 15pt;
@@ -72,6 +76,13 @@ a{
 
 a:hover{
   background-color: white;
+}
+
+label{
+  font-family: var(--body-font);
+  color: var(--purple);
+  font-size: 11pt;
+  text-align: left;
 }
 
 footer{
@@ -236,6 +247,11 @@ a.menu-close{
   padding-bottom: 15px;
 }
 
+.big-viz{
+  max-width: 800px;
+  padding-bottom: 15px;
+}
+
 .deeper-link{
   text-align: right;
   font-family: var(--body-font);
@@ -270,4 +286,42 @@ a.menu-close{
 #headshot{
   border-radius: 50%;
   width: 200px;
+}
+
+/*The following styling deals with hide/show of individual gender equality predictor graphs.
+Thanks to lynx_74 of stack overflow for this solution: https://stackoverflow.com/a/44297341>*/
+#show-socialgroup,#content-socialgroup,
+#show-urbanrural,#content-urbanrural,
+#show-socioeconomic,#content-socioeconomic,
+#show-political,#content-political,
+#show-justicewomen,#content-justicewomen,
+#show-justicemen,#content-justicemen,
+#show-civillib,#content-civillib,
+#show-power,#content-power,
+#show-foreignmvmt,#content-foreignmvmt,
+#show-academiccultural,#content-academiccultural,
+#show-domesticwomen,#content-domesticwomen,
+#show-domesticmen,#content-domesticmen,
+#show-discussionmen,#content-discussionmen,
+#show-censorship,#content-censorship,
+#show-selfcensorship,#content-selfcensorship{
+  display:none;
+}
+
+#show-socialgroup:checked~#content-socialgroup,
+#show-urbanrural:checked~#content-urbanrural,
+#show-socioeconomic:checked~#content-socioeconomic,
+#show-political:checked~#content-political,
+#show-justicewomen:checked~#content-justicewomen,
+#show-justicemen:checked~#content-justicemen,
+#show-civillib:checked~#content-civillib,
+#show-power:checked~#content-power,
+#show-foreignmvmt:checked~#content-foreignmvmt,
+#show-academiccultural:checked~#content-academiccultural,
+#show-domesticwomen:checked~#content-domesticwomen,
+#show-domesticmen:checked~#content-domesticmen,
+#show-discussionmen:checked~#content-discussionmen,
+#show-censorship:checked~#content-censorship,
+#show-selfcensorship:checked~#content-selfcensorship{
+  display:block;
 }
