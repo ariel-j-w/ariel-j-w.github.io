@@ -16,9 +16,9 @@
     <nav id="main-menu" class="main-menu">
       <a href="#" id="main-menu-close" class="menu-close">&times;</a>
       <ul>
-        <li><a href="../../">Welcome</a></li>
-        <li><a href="../">Democracy Project</a></li>
-        <li><a href="../../assets/Resume_2020.pdf" target="_blank">Resume</a></li>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/democracy-project">Democracy Project</a></li>
+        <li><a href="/assets/Resume_2020.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
     <a href="#" class="backdrop" tabindex="-1" hidden></a>
@@ -44,6 +44,9 @@
     <div>
       <h2>Further Analysis</h2>
       <div class="p-content">
+        <p>
+          To see how each of our important variables related to gender equality, see below and click on <em> "Toggle show/hide"</em> for each variable to see a scatterplot of all observations where the variable in question can be plotted against gender equality. The points in these scatter plots come from all countries across all years of observation. Here, they are listed in order of greatest importance (as noted by the variable importance chart above). You can see here that some variables have a more obviously strong relationship with gender eqality than others, but ultimately each of these important variables had a noticeably positive correlation with our output (gender equality).
+        </p>
         <h3 class="genderEq-analysis">Social Group Exclusion</h3>
         <input type=checkbox id="show-socialgroup">
         <label for="show-socialgroup">Toggle show/hide</label>
@@ -175,7 +178,7 @@
         <label for="show-selfcensorship">Toggle show/hide</label>
         <span id="content-selfcensorship">
           <img src="../assets/gender-equality-relationships/v_22_03.png"
-          alt="Media Self-Censorship versus Gender Equality" 
+          alt="Media Self-Censorship versus Gender Equality"
           class="big-viz">
         </span>
       </div>
@@ -186,11 +189,11 @@
       <div class="p-content">
         <h3>Choosing Indicators</h3>
         <p>
-          If you recall, our <a href="../index.html#dataset" target="_blank">dataset</a> has multiple levels of granularity, starting from the domain and subdomain level, all the way down to the individual indicator level. I leveraged this fact to inform my variable-selection process. I started with a decision tree with the highest level variables (i.e. at the domain level), and used the variable importance chart from each decision tree to inform which variables to include in my next analysis. I gradually worked down from domain-level variables to the individual indicator variables, never including anything that was a product of or indicator for the gender equality variable. You can see more details about how this process went <a href=#dig-deeper>in the code</a>.
+          If you recall, our <a href="../dataset.html" target="_blank" class="link-on-gray">dataset</a> has multiple levels of granularity, starting from the domain and subdomain level, all the way down to the individual indicator level. I leveraged this fact to inform my variable-selection process. I started with a decision tree with the highest level variables (i.e. at the domain level), and used the variable importance chart from each decision tree to inform which variables to include in my next analysis. I gradually worked down from domain-level variables to the individual indicator variables, never including anything that was a product of or indicator for the gender equality variable. You can see more details about how this process went <a href=#dig-deeper class="link-on-gray">in the code</a>.
         </p>
         <h3>Pruning the Tree</h3>
         <p>
-          Once I had drilled down to the lowest level of data granularity, I had a decision tree with high accuracy but 40 indicator variables. This situation seemed really dangerous and prone to overfitting, so I wanted to take steps to protect against the possibility of overfitting which still maintaining a highly accurate decision tree. To do this, I "pruned" the decision tree by keeping only the indicators whcih contributed to at least 1% of the total importance in decision making.
+          Once I had drilled down to the lowest level of data granularity, I had a decision tree with high accuracy but 40 indicator variables. This situation seemed really dangerous and prone to overfitting, so I wanted to take steps to guard against that while still maintaining a highly accurate decision tree. To do this, I "pruned" the decision tree by keeping only the indicators whcih contributed to at least 1% of the total importance in decision making.
         </p>
         <h4>Calculating Accuracy</h4>
         <p>
@@ -226,7 +229,7 @@
           Still want to see more of the process? Check out the full code on GitHub!
         </p>
         <div class="right">
-          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/genderEquality.Rmd' class="deeper-link" title="">
+          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/genderEquality.Rmd' class="deeper-link" target="_blank">
             GitHub Project <span>&#8594;</span>
           </a>
         </div>

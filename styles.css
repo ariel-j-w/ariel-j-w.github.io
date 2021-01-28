@@ -8,6 +8,10 @@
   --header-font: 'Yusei Magic', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background-color: white;
   color: var(--darkest);
@@ -75,6 +79,10 @@ a{
 }
 
 a:hover{
+  background-color: var(--light-gray);
+}
+
+a.link-on-gray:hover{
   background-color: white;
 }
 

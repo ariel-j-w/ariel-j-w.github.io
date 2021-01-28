@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Ariel Wentworth | Project</title>
+  <title>Ariel Wentworth | Democracy Project</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="../styles.css">
   <link rel="icon" href="../assets/headshot.ico">
@@ -16,9 +16,9 @@
     <nav id="main-menu" class="main-menu">
       <a href="#" id="main-menu-close" class="menu-close">&times;</a>
       <ul>
-        <li><a href="../">Welcome</a></li>
-        <li><a href="#">Democracy Project</a></li>
-        <li><a href="../assets/Resume_2020.pdf" target="_blank">Resume</a></li>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/democracy-project">Democracy Project</a></li>
+        <li><a href="/assets/Resume_2020.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
     <a href="#" class="backdrop" tabindex="-1" hidden></a>
@@ -29,16 +29,7 @@
 
 <div class="content">
   <div class="shaded-gray">
-    <h2>Motivation</h2>
-    <div class="p-content">
-      <p>
-        Last semester I took a class on religious freedom and became super intrigued with the content. Inevitably, a class like that spurred lots of conversations about democracy on the international stage. My professor made claims such as "all of freedoms flow from religious liberty." We researched and discussed many examples of gender inequality. Discussions such as these made me very curious about the state of international freedom. When I discovered the <em>Global State of Democracy Index</em>, I immediately knew I wanted to dig into it and see if helpful visualizations or models could answer some of the questions I'd been contemplating.
-      </p>
-    </div>
-  </div>
-
-  <div>
-    <h2 id="dataset">Dataset</h2>
+    <h2>Introduction</h2>
     <div class="p-content">
       <p>
         The <em>Global State of Democracy Index </em> (the GSoDi):
@@ -48,18 +39,25 @@
           <li>covers 163 countries</li>
           <li>quantifies each feature in the dataset on a scale from 0 to 1, where 1 is always the most democratic response</li>
           <li>is an aggregation of data from multiple sources, gathered and standardized by the International Institute for Democracy and Electoral Assistance (IDEA)</li>
-          <!--Add more information about how the variables are broken down, link to lucidchart-->
         </ul>
       </p>
+      <p>
+        In this project, I looked at the 2020 GSoDi and drew some key insights from the data through the use of machine learning and data visualization.
+      </p>
+      <div class="right">
+        <a href='dataset.html' class="deeper-link link-on-gray">
+          <u>Tell me more</u>: the structure & makeup of the dataset <span>&#8594;</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="shaded-gray">
+  <div>
     <h2>Analysis</h2>
     <div class="p-content">
       <h3>Comparative Measure of Democracy</h3>
       <p>
-        One distinctive of the GSoDi is lack of an aggregate measure present. Though they had their reasons for excluding such an aggregation, I do think this index can provide some valuable insight if we create one. For the purposes of this project, I used k-means clustering to identify a relative measure of democracy using the most recently available data. In this model, countries were ranked on a sliding scale from 1 (most democratic) to 5 (least democratic).
+        One distinctive of the GSoDi is the lack of an aggregate measure present. Though they had <a href="https://www.idea.int/gsod-indices/faqs#Why%20is%20there%20no%20single%20'Democracy%20score'?" target="_blank">their reasons</a> for excluding such an aggregation, I do think this index can provide some valuable insight if we create one. For the purposes of this project, I used k-means clustering to identify a relative measure of democracy using the most recently available data. In this model, countries were ranked on a sliding scale from 1 (most democratic) to 5 (least democratic).
       </p>
       <div class='tableauPlaceholder viz' id='viz1611784050989' style='position: relative'>
         <noscript>
@@ -95,7 +93,7 @@
     <div class="p-content">
       <h3>Predictors of Gender Equality</h3>
       <p>
-        As I alluded to previously, one of my main fascinations with this dataset was all of the information related to gender equality. I wanted to see if we could identify indicators that commonly predicted gender equality. To investigate this, I used decision tree analysis to narrow down which indicators in the GSoDi were most important for predicting the level of gender equality. The analysis yielded the following as the most important variables.
+        One of my main fascinations with this dataset was all of the information related to gender equality. I wanted to see if we could identify indicators that commonly predicted gender equality. To investigate this, I used decision tree analysis to narrow down which indicators in the GSoDi were most important for predicting the level of gender equality. The analysis yielded the following as the most important variables in this prediction.
       </p>
       <img src="assets/genderEquality.png" alt="Variable Importance Chart for Gender Equality" class="viz">
       <div class="right">
@@ -108,10 +106,10 @@
     <div class="p-content">
       <h3>Freedom of Religion and Other Fundamental Rights</h3>
       <p>
-        One of the reasons I was originally interested in this dataset was to evaluate a claim made by one of my professors: that religious freedom was an indicator of all other rights, and a decline in religious freedom is a foreshadowing of decline in other fundamental rights. To explore this claim, I made the following bubble chart (in a style very remniscent of Hans Rosling's work). Below, feel free to interact with the visualization and watch how religious freedom relates to other fundamental rights. The bubbles each represent countries, sized according to their population. In the upper left, you can select which fundamental right to be measured on the y-axis. On the right, select any year between 1975 and 2019. Hover over an individual bubble to see details about that country.
+        One of the reasons I was originally interested in this dataset was to evaluate the effects of changing levels of freedom of religion on other fundamental rights. I have heard the claim that that freedom of religion was an indicator of the direction other rights are headed, and that a decline in religious freedom is foreshadowing a decline of other rights. To explore this claim, I made the following bubble chart (in a style very remniscent of <a href="https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen" target="_blank">Hans Rosling's work</a>). Below, feel free to interact with the visualization and watch how religious freedom relates to other fundamental rights. The bubbles each represent countries, sized according to their population. In the upper left, you can select which fundamental right to be measured on the y-axis. On the right, select any year between 1975 and 2019. Hover over an individual bubble to see details about that country.
       </p>
       <p>
-        <em>Tip:</em> To see an animation throughout all present years, pull the year slider (found on the right side) all the way to the earliest position. Then, click once on the right arrow <em>below</em> the slider.
+        <em>Tip:</em> To see an animation throughout all available years, pull the year slider (found on the right side) all the way to the earliest position. Then, click once on the right arrow <em>below</em> the slider. (This functionality -- animation -- may not be available on all mobile devices.)
       </p>
       <div class='tableauPlaceholder viz' id='viz1611778429893' style='position: relative'>
         <noscript>
@@ -144,9 +142,9 @@
     </div>
   </div>
 
-  <div>
+  <div class="shaded-gray">
     <h2>Acknowledgements</h2>
-    <p class="p-content" style="padding-top: 25px;">
+    <p class="p-content">
       Special thanks to Ben Roller (of Taylor University) for providing support and insight into this project. Additional thanks to the people at the International Institute for Democracy and Electoral Assistance for creating such a robust and trustworthy dataset which acted as the basis for all of this work.
     </p>
   </div>

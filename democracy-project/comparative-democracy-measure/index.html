@@ -16,9 +16,9 @@
     <nav id="main-menu" class="main-menu">
       <a href="#" id="main-menu-close" class="menu-close">&times;</a>
       <ul>
-        <li><a href="../../">Welcome</a></li>
-        <li><a href="../">Democracy Project</a></li>
-        <li><a href="../../assets/Resume_2020.pdf" target="_blank">Resume</a></li>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/democracy-project">Democracy Project</a></li>
+        <li><a href="/assets/Resume_2020.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
     <a href="#" class="backdrop" tabindex="-1" hidden></a>
@@ -58,7 +58,7 @@
           </object>
         </div>
         <p>
-          As mentioned above, this algorithm serves a purpose unique from the <a href="https://www.eiu.com/topic/democracy-index">EIU Democracy Index</a>. The EIU Democracy index, crafted by the Economic Intelligence Unit, assigns a value between 0 and 10 to each country, where a score of 10 would be a completely democratic regime. The EIU crafts 60 survey questions and uses a <a href="https://en.wikipedia.org/wiki/Democracy_Index#Method">weighted average</a> to determine the final ranking. In this way, the EIU comes up with an "objective" standard of democracy, and compares countries to that pre-determined standard.
+          As mentioned above, this algorithm serves a purpose unique from the <a href="https://www.eiu.com/topic/democracy-index" target="_blank" class="link-on-gray">EIU Democracy Index</a>. The EIU Democracy index, crafted by the Economic Intelligence Unit, assigns a value between 0 and 10 to each country, where a score of 10 would be a completely democratic regime. The EIU crafts 60 survey questions and uses a <a href="https://en.wikipedia.org/wiki/Democracy_Index#Method" target="_blank" class="link-on-gray">weighted average</a> to determine the final ranking. In this way, the EIU comes up with an "objective" standard of democracy, and compares countries to that pre-determined standard.
         </p>
         <p>
           Of course, the EIU Democracy Index is very well respected, but some further valuable insight can be gained from the <em>Global State of Democracy Index</em>. For instance, I would consider the GSoDi work to be particularly robust, as it draws from multiple different sources for its survey data. This is helpful in counter-acting any unseen bias that may come from the work of a single board of researchers. Furthermore, we should note that the EIU measure has a completely different purpose than the measure that we see here. As noted above, the EIU index focuses on some "objective" standard, while our work here aims for a comparative measure, rooted in measuring democracy in a way that is <em>relative</em> to other countries. Both of these measures can be valuable, and I believe there is a particular nuance to be gained from each.
@@ -68,7 +68,7 @@
           To my knowledge, this measure of democracy is the first of its kind to rely on machine learning for it's conclusions. If nothing else, I believe this work could serve as a launching pad for future work where we allow machine learning and statistics to further inform our analysis of political measures. As we know, humans carry with them inherent bias which can cloud our understanding. While it can be dangerous to allow computations to inform our decisions without human discernment, there is certainly much to be gained by utilizing current technology to boost our analysis.
         </p>
         <p>
-          Ultimately, this technology would be most useful in collaboration with field expertise from a political scientist invested in utilizing new research methods such as machine learning. Given that I am not a professional in that field, this work as is should be taken with a grain of salt. However, in the future I would love to either pursue further political training or work with somebody already knowledgeable in the political realm in order to build on this current body of work. Especially in terms of <a href="#missing-values">dealing with missing values</a>, I wonder if these could be handled more rigorously given someone with appropriate background. Additionally, peer review of this work from both machine learning experts and political science experts could refine this method to create something truly valuable.
+          Ultimately, this technology would be most useful in collaboration with field expertise from a political scientist invested in utilizing new research methods such as machine learning. Given that I am not a professional in that field, this work as is should be taken with a grain of salt. However, in the future I would love to either pursue further political training or work with somebody already knowledgeable in the political realm in order to build on this current body of work. Especially in terms of <a href="#missing-values" class="link-on-gray">dealing with missing values</a>, I wonder if these could be handled more rigorously given someone with appropriate background. Additionally, peer review of this work from both machine learning experts and political science experts could refine this method to create something truly insightful.
         </p>
       </div>
     </div>
@@ -83,7 +83,7 @@
 
         <h4>Selecting Data Subset</h4>
         <p>
-          Our first step in doing this analysis was to decide which level of granularity to include in our clustering algorithm. Though this is a subjective process, it was important to consider a balance between having enough data to yield an interesting analysis and not having such a level of detail that one category overruns the others (looking at the structure of the dataset, <!--add link--> you can see that using the finest level of granularity would heavily bias our analysis towards considering fundamental rights much more than other aspects of democracy). For this reason, I decided to analyze the data at the subdomain level (see <!--add link-->the structure of the dataset for more information), yielding 16 features for clustering:
+          Our first step in doing this analysis was to decide which level of granularity to include in our clustering algorithm. Though this is a subjective process, it was important to consider a balance between having enough data to yield an interesting analysis and not having such a level of detail that one category overruns the others (looking at the structure of the dataset, <!--add link--> you can see that using the finest level of granularity would heavily bias our analysis towards considering fundamental rights much more than other aspects of democracy). For this reason, I decided to analyze the data at the subdomain level (see <a href="/democracy-project/dataset.html" target="_blank">the structure of the dataset</a> for more information), yielding 16 features for clustering:
           <ul>
             <li>clean elections</li>
             <li>inclusive suffrage</li>
@@ -106,10 +106,10 @@
 
         <h3 id="missing-values">Dealing with Missing Values</h3>
         <p>
-          Though the GSoDi data was generally robust, there were a few missing values at this level of granularity in 2019. Specifically, we had 10 missing values spread across 9 different countries (accounting for 0.6% of our total data). Since k-means clustering relies on the ability to calculate distances between observations, there cannot be any missing values. In general there are two commonly accepted methods for dealing with missing values in k-means: either eliminating any observations with missing values from the analysis (in our case, not including the 9 relevant countries), or assigning each missing value to the average value of the feature. In the latter case, the idea is not that the true value of the missing datum would be exactly the average, but instead that having the missing feature as average would not really allow that missing value to greatly skew what would have otherwise been the classification of that observation.
+          Though the GSoDi data was generally robust, there were a few missing values at this level of granularity in 2019. Specifically, we had 10 missing values spread across 9 different countries (accounting for 0.6% of our total analyzed data). Since k-means clustering relies on the ability to calculate distances between observations, there cannot be any missing values. In general there are two commonly accepted methods for dealing with missing values in k-means: either eliminating any observations with missing values from the analysis (in our case, not including the 9 relevant countries), or assigning each missing value to the average value of the feature. In the latter case, the idea is not that the true value of the missing datum would be exactly the average, but instead that having the missing feature as average would not really allow that missing value to greatly skew what would have otherwise been the classification of that observation.
         </p>
         <p>
-          In our case, nearly all of the missing values are for features defined as an aggregation of several variables. In general, these aggregation values are left as missing due to one of their sub-variables being missing. Whenever possible, we will chose reconstruct our relevant missing value, by taking the average of all sub-variables which are not missing. For one variable, however (electoral participation), there were no relevant sub-variables to draw from. The 3 countries missing this value have no other reasonable way to repair the missing value, so we default to the widely accepted practice (discussed above) of using the average from that feature as a stand-in for the data: allowing k-means to run without really allowing this missing value to differentiate the country in question from any other country.
+          In our case, nearly all of the missing values are for features defined as an aggregation of several variables. In general, these aggregation values are left as missing due to one of their sub-variables being missing. Whenever possible, we will chose reconstruct our relevant missing value, by taking the average of all sub-variables which are not missing. For one variable, however (electoral participation), there were no relevant sub-variables to draw from. The 3 countries missing this value have no other reasonable way to repair the missing value, so we defaulted to the widely accepted practice (discussed above) of using the average from that feature as a stand-in for the data: allowing k-means to run without really allowing this missing value to differentiate the country in question from any other country.
         </p>
         <p>
           Ultimately, the restored missing values were for:
@@ -140,7 +140,7 @@
           Still want to see more of the process? Check out the full code on GitHub!
         </p>
         <div class="right">
-          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/exploration.Rmd' class="deeper-link" title="">
+          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/exploration.Rmd' class="deeper-link link-on-gray" target="_blank">
             GitHub Project <span>&#8594;</span>
           </a>
         </div>
