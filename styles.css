@@ -1,0 +1,336 @@
+:root{
+  --darkest: #454545;
+  --medium-gray: #5C5C5C;
+  --light-gray: #F3F5F7;
+  --yellow: #FFC857;
+  --purple: #AD7A99;
+  --body-font: 'Lato', sans-serif;
+  --header-font: 'Yusei Magic', sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: white;
+  color: var(--darkest);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header{
+  padding-bottom: 1px;
+  padding-left: 5%;
+  padding-top: 5%;
+  background-color: var(--purple);
+}
+
+h1{
+  font-family: var(--header-font);
+  text-align: left;
+  font-size: 30pt;
+  color: white;
+}
+
+h2{
+  font-family: var(--header-font);
+  font-size: 22pt;
+  color: inherit;
+  float: left;
+  vertical-align: text-top;
+  text-align: right;
+  width: 240px;
+  padding-right: 30px;
+}
+
+h3{
+  font-family: var(--header-font);
+  font-size: 18pt;
+  color: var(--medium-gray);
+}
+
+h3.genderEq-analysis{
+  margin-bottom: 0px;
+}
+
+h4{
+  font-family: var(--header-font);
+  font-size: 15pt;
+  color: var(--medium-gray);
+}
+
+p{
+  font-family: var(--body-font);
+  font-size: 12pt;
+  text-align: left;
+}
+
+ul{
+  font-family: var(--body-font);
+  font-size: 12pt;
+  text-align: left;
+  margin-top: -10px;
+}
+
+a{
+  text-decoration: none;
+  color: var(--purple);
+}
+
+a:hover{
+  background-color: var(--light-gray);
+}
+
+a.link-on-gray:hover{
+  background-color: white;
+}
+
+label{
+  font-family: var(--body-font);
+  color: var(--purple);
+  font-size: 11pt;
+  text-align: left;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8px;
+  background-color: var(--purple);
+}
+
+/*Big thanks & acknowledgement to Mark Caron for much of this menu formatting: https://medium.com/@heyoka/responsive-pure-css-off-canvas-hamburger-menu-aebc8d11d793*/
+
+.menu-toggle{
+  color: white;
+  font-size: 40pt;
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  color: var(--light-gray);
+  background-color: transparent;
+}
+
+a.menu-close{
+  z-index: 1002;
+}
+
+.main-menu {
+  position: absolute;
+  /*display: none;*/
+  right: -250px;
+  top: 0;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: visible;
+  transition: right 0.3s ease;
+  z-index: 999;
+}
+
+.main-menu ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 2.5em 0 0;
+  min-height: 100%;
+  width: 250px;
+  background: var(--yellow);
+}
+
+.main-menu a {
+  display: block;
+  padding: .75em 15px;
+  font-size: 14pt;
+  color: var(--darkest);
+  text-decoration: none;
+}
+
+.main-menu li:first-child a {
+}
+
+.main-menu a:hover,
+.main-menu a:focus {
+  background:var(--light-gray);
+}
+
+.main-menu .menu-close {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.main-menu:target {
+  display: block;
+  right: 0;
+  outline: none;
+}
+
+.main-menu:target .menu-close .menu-close {
+  z-index: 1001;
+}
+
+.main-menu:target ul {
+  position: relative;
+  z-index: 1000;
+}
+
+.main-menu:target + .backdrop{
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background: #000;
+  background: rgba(255,255,255,.25);
+  cursor: default;
+}
+
+@supports (position: fixed) {
+  .main-menu,
+  .main-menu:target + .backdrop{
+    position: fixed;
+  }
+}
+
+
+.box{
+  display: flex;
+  justify-content: start;
+}
+
+.subtitle{
+  margin-top: -25px;
+  color: white;
+  font-size: 18pt;
+  font-family: 'Lato', sans-serif;
+  padding-left: 0;
+}
+
+.splash{
+  background-color: var(--purple);
+  color: white;
+}
+
+.yellow{
+  background-color: var(--yellow);
+}
+
+.content{
+  margin: 0;
+  padding-left: 5%;
+  padding: 5%;
+  padding-bottom: 5%;
+  padding-top: 2%;
+}
+
+.p-content{
+  padding-left: 280px;
+}
+
+.shaded-gray{
+  background-color: var(--light-gray);
+  padding: 3px 30px 3px 30px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.right{
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+.viz{
+  width: 100%;
+  max-width: 1000px;
+  padding-bottom: 15px;
+}
+
+.big-viz{
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 15px;
+}
+
+.deeper-link{
+  text-align: right;
+  font-family: var(--body-font);
+  font-size: 14pt;
+  color: var(--yellow);
+}
+
+#welcome{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  justify-content: center;
+}
+
+#greeting{
+  font-size: 20pt;
+  padding-left: 50px;
+}
+
+#hi{
+  margin: 0;
+  padding: 0;
+  padding-left: 50px;
+  font-family: 'Yusei Magic', sans-serif;
+  text-align: left;
+  font-size: 60pt;
+}
+
+#headshot{
+  border-radius: 50%;
+  width: 200px;
+}
+
+/*The following styling deals with hide/show of individual gender equality predictor graphs.
+Thanks to lynx_74 of stack overflow for this solution: https://stackoverflow.com/a/44297341>*/
+#show-socialgroup,#content-socialgroup,
+#show-urbanrural,#content-urbanrural,
+#show-socioeconomic,#content-socioeconomic,
+#show-political,#content-political,
+#show-justicewomen,#content-justicewomen,
+#show-justicemen,#content-justicemen,
+#show-civillib,#content-civillib,
+#show-power,#content-power,
+#show-foreignmvmt,#content-foreignmvmt,
+#show-academiccultural,#content-academiccultural,
+#show-domesticwomen,#content-domesticwomen,
+#show-domesticmen,#content-domesticmen,
+#show-discussionmen,#content-discussionmen,
+#show-censorship,#content-censorship,
+#show-selfcensorship,#content-selfcensorship{
+  display:none;
+}
+
+#show-socialgroup:checked~#content-socialgroup,
+#show-urbanrural:checked~#content-urbanrural,
+#show-socioeconomic:checked~#content-socioeconomic,
+#show-political:checked~#content-political,
+#show-justicewomen:checked~#content-justicewomen,
+#show-justicemen:checked~#content-justicemen,
+#show-civillib:checked~#content-civillib,
+#show-power:checked~#content-power,
+#show-foreignmvmt:checked~#content-foreignmvmt,
+#show-academiccultural:checked~#content-academiccultural,
+#show-domesticwomen:checked~#content-domesticwomen,
+#show-domesticmen:checked~#content-domesticmen,
+#show-discussionmen:checked~#content-discussionmen,
+#show-censorship:checked~#content-censorship,
+#show-selfcensorship:checked~#content-selfcensorship{
+  display:block;
+}

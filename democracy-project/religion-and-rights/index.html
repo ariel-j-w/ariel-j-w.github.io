@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Ariel Wentworth | Religion & Rights</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../styles.css">
+  <link rel="icon" href="../../assets/headshot.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Yusei+Magic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="yellow">
+    <a href="#main-menu" class="menu-toggle">&#x2630;</a>
+    <nav id="main-menu" class="main-menu">
+      <a href="#" id="main-menu-close" class="menu-close">&times;</a>
+      <ul>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/democracy-project">Democracy Project</a></li>
+        <li><a href="/assets/Resume_2020.pdf" target="_blank">Resume</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="backdrop" tabindex="-1" hidden></a>
+
+    <h1>Freedom of Religion and Other Fundamental Rights</h1>
+    <p class="subtitle">An in-depth discussion of this visualization and some conclusions</p>
+  </header>
+
+  <div class="content">
+    <div class="shaded-gray">
+      <h2>Religion & Rights</h2>
+      <div class="p-content">
+        <p>
+          I was curious to see how religious freedom related to other fundamental rights, so I created an interactive visualization with Tableau to encourage exploration of these relationships. The user can select which fundamental right to view on the y-axis and can hover over bubbles representing each country (sized based on country population and colored based on region), to see the details for that country. The visualization can also be animated to watch changes over time, or the user may select a year to investigate statically.
+        </p>
+        <p>
+          <em>Tip:</em> To see an animation throughout all available years, pull the year slider (found on the right side) all the way to the earliest position. Then, click once on the right arrow <em>below</em> the slider. (This functionality -- animation -- may not be available on all mobile devices.)
+        </p>
+        <div class='tableauPlaceholder viz' id='viz1611778429893' style='position: relative'>
+          <noscript>
+            <a href='#'>
+              <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReligiousFreedomOtherRights&#47;Religion&#47;1_rss.png' style='border: none' />
+            </a>
+          </noscript>
+          <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='ReligiousFreedomOtherRights&#47;Religion' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;ReligiousFreedomOtherRights&#47;Religion&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en' />
+          </object>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <h2>Further work</h2>
+      <div class="p-content">
+        <p>
+          This visualization is great for exploration and personal investigation of certain claims. What the viewer chooses to investigate will be a primary driver as to which conclusions this visualization will highlight. Further statistical analysis would be required to draw mathematically-backed conclusions. I think it would be interesting to review the effect of changing freedom of religion on other rights by doing a statistical test of hypothesis or time series analysis. Even linear regressions or correlograms could be insightful as to see which fundamental rights have the strongest positive correlation with religious freedom. Ultimately, there are many more analyses and visualizations that could aid in a more well-defined investigation of this claim, but even then this exploratory visualization could be a useful tool in defining what avenues of exploration warrant more rigorous methods.
+        </p>
+      </div>
+    </div>
+
+    <div class="shaded-gray">
+      <h2>Dig Deeper</h2>
+      <div class="p-content">
+        <p>
+          Still want to see more of the process? Check out the full project on GitHub! (<em>Note:</em> This visualization was created entirely in a Tableau workbook, so there is not much relevant <em>code</em> other than the data pre-processing. However, the Tableau workbook can still be downloaded from the GitHub repository.)
+        </p>
+        <div class="right">
+          <a href='https://github.com/ariel-j-w/GSoD-viz' class="deeper-link" title="">
+            GitHub Project <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+
+  <script type='text/javascript'>
+    /*Religious freedom bubble chart*/
+    var divElement = document.getElementById('viz1611778429893');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    if ( divElement.offsetWidth > 800 ) {
+      vizElement.style.width='100%';
+      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else if ( divElement.offsetWidth > 500 ) {
+      vizElement.style.width='100%';
+      vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+    } else {
+      vizElement.style.width='100%';
+      vizElement.style.height='727px';
+    }
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+</body>

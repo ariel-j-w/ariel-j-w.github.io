@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Ariel Wentworth | Gender Equality</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../../styles.css">
+  <link rel="icon" href="../../assets/headshot.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Yusei+Magic&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="yellow">
+    <a href="#main-menu" class="menu-toggle">&#x2630;</a>
+    <nav id="main-menu" class="main-menu">
+      <a href="#" id="main-menu-close" class="menu-close">&times;</a>
+      <ul>
+        <li><a href="/">Welcome</a></li>
+        <li><a href="/democracy-project">Democracy Project</a></li>
+        <li><a href="/assets/Resume_2020.pdf" target="_blank">Resume</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="backdrop" tabindex="-1" hidden></a>
+
+    <h1>Predictors of Gender Equality</h1>
+    <p class="subtitle">An in-depth look at the decision tree process and further conclusions</p>
+  </header>
+
+  <div class="content">
+    <div class="shaded-gray">
+      <h2>Variable Importance Chart</h2>
+      <div class="p-content">
+        <p>
+          Through decision tree analysis, I was able to narrow down which indicators in the GSoDi were most important for predicting the level of gender equality. The analysis yielded the following as the most important variables. The relative importance measure (as graphed below) is defined as the the proportion of the total decision-making power acheived by each variable in a decision tree for gender equality based solely upon the indicators listed in the chart.
+        </p>
+        <img src="../assets/genderEquality.png" alt="Variable Importance Chart for Gender Equality" class="viz">
+        <p>
+          This variable importance chart is based on a decision tree where the output was a discretized version of the gender equality feature. To convert gender equality into a discrete variable (in the GSoDi dataset, all variables are continuous between 0 and 1), I simply binned the data into 4 parts: 0.4 and below, over 0.4 and up to or including 0.6, over 0.6 and up to or including 0.8, and over 0.8. Based upon those bins. A decision tree with only the variables in the chart above predicts with 76.659% accuracy the correct bin that a given observation would be in for its measure of gender equality. Furthermore, 99.489% of classifications made with this decision tree place the observation in <em>either</em> its correct bin or an adjacent one. For example, if the true value of a gender equality observation belongs in the (0.8, 1.0] bin, this decision tree is 99.489% likely to predict this obersevation belongs in either the (0.8, 1.0] bin <em>or</em> the (06, 0.8] bin.
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h2>Further Analysis</h2>
+      <div class="p-content">
+        <p>
+          To see how each of our important variables related to gender equality, see below and click on <em> "Toggle show/hide"</em> for each variable to see a scatterplot of all observations where the variable in question can be plotted against gender equality. The points in these scatter plots come from all countries across all years of observation. Here, they are listed in order of greatest importance (as noted by the variable importance chart above). You can see here that some variables have a more obviously strong relationship with gender eqality than others, but ultimately each of these important variables had a noticeably positive correlation with our output (gender equality).
+        </p>
+        <h3 class="genderEq-analysis">Social Group Exclusion</h3>
+        <input type=checkbox id="show-socialgroup">
+        <label for="show-socialgroup">Toggle show/hide</label>
+        <span id="content-socialgroup">
+          <img src="../assets/gender-equality-relationships/v_23_08.png"
+          alt="Social Group Index versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Urban/Rural Location Exclusion</h3>
+        <input type=checkbox id="show-urbanrural">
+        <label for="show-urbanrural">Toggle show/hide</label>
+        <span id="content-urbanrural">
+          <img src="../assets/gender-equality-relationships/v_23_09.png"
+          alt="Urban/Rural Location Index versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Socio-Economic Exclusion</h3>
+        <input type=checkbox id="show-socioeconomic">
+        <label for="show-socioeconomic">Toggle show/hide</label>
+        <span id="content-socioeconomic">
+          <img src="../assets/gender-equality-relationships/v_23_06.png"
+          alt="Socio-Economic Group Index versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Political Exclusion</h3>
+        <input type=checkbox id="show-political">
+        <label for="show-political">Toggle show/hide</label>
+        <span id="content-political">
+          <img src="../assets/gender-equality-relationships/v_23_07.png"
+          alt="Political Group Index versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Justice for Women</h3>
+        <input type=checkbox id="show-justicewomen">
+        <label for="show-justicewomen">Toggle show/hide</label>
+        <span id="content-justicewomen">
+          <img src="../assets/gender-equality-relationships/v_21_02.png"
+          alt="Access to Justice for Women versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Justice for Men</h3>
+        <input type=checkbox id="show-justicemen">
+        <label for="show-justicemen">Toggle show/hide</label>
+        <span id="content-justicemen">
+          <img src="../assets/gender-equality-relationships/v_21_01.png"
+          alt="Access to Justice for Men versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Social Group Equality: Civil Liberties</h3>
+        <input type=checkbox id="show-civillib">
+        <label for="show-civillib">Toggle show/hide</label>
+        <span id="content-civillib">
+          <img src="../assets/gender-equality-relationships/v_23_02.png"
+          alt="Social Group Equality: Civil Liberties versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Power Distribution</h3>
+        <input type=checkbox id="show-power">
+        <label for="show-power">Toggle show/hide</label>
+        <span id="content-power">
+          <img src="../assets/gender-equality-relationships/v_23_04.png"
+          alt="Power Distribution versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Freedom of Foreign Movement</h3>
+        <input type=checkbox id="show-foreignmvmt">
+        <label for="show-foreignmvmt">Toggle show/hide</label>
+        <span id="content-foreignmvmt">
+          <img src="../assets/gender-equality-relationships/v_22_31.png"
+          alt="Freedom of Foreign Movement versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Freedom of Academic and Cultural Expression</h3>
+        <input type=checkbox id="show-academiccultural">
+        <label for="show-academiccultural">Toggle show/hide</label>
+        <span id="content-academiccultural">
+          <img src="../assets/gender-equality-relationships/v_22_06.png"
+          alt="Freedom of Academic and Cultural Expression versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Freedom of Domestic Movement: Women</h3>
+        <input type=checkbox id="show-domesticwomen">
+        <label for="show-domesticwomen">Toggle show/hide</label>
+        <span id="content-domesticwomen">
+          <img src="../assets/gender-equality-relationships/v_22_32.png"
+          alt="Freedom of Domestic Movement for Women versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Freedom of Domestic Movement: Men</h3>
+        <input type=checkbox id="show-domesticmen">
+        <label for="show-domesticmen">Toggle show/hide</label>
+        <span id="content-domesticmen">
+          <img src="../assets/gender-equality-relationships/v_22_33.png"
+          alt="Freedom of Domestic Movement for Men versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Freedom of Discussion for Men</h3>
+        <input type=checkbox id="show-discussionmen">
+        <label for="show-discussionmen">Toggle show/hide</label>
+        <span id="content-discussionmen">
+          <img src="../assets/gender-equality-relationships/v_22_05.png"
+          alt="Freedom of Discussion for Men versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Print/Broadcast Censorship</h3>
+        <input type=checkbox id="show-censorship">
+        <label for="show-censorship">Toggle show/hide</label>
+        <span id="content-censorship">
+          <img src="../assets/gender-equality-relationships/v_22_01.png"
+          alt="Print/Broadcast Censorship Effort versus Gender Equality"
+          class="big-viz">
+        </span>
+
+        <h3 class="genderEq-analysis">Media Self-Censorship</h3>
+        <input type=checkbox id="show-selfcensorship">
+        <label for="show-selfcensorship">Toggle show/hide</label>
+        <span id="content-selfcensorship">
+          <img src="../assets/gender-equality-relationships/v_22_03.png"
+          alt="Media Self-Censorship versus Gender Equality"
+          class="big-viz">
+        </span>
+      </div>
+    </div>
+
+    <div class="shaded-gray">
+      <h2>Decision Tree Process</h2>
+      <div class="p-content">
+        <h3>Choosing Indicators</h3>
+        <p>
+          If you recall, our <a href="../dataset.html" target="_blank" class="link-on-gray">dataset</a> has multiple levels of granularity, starting from the domain and subdomain level, all the way down to the individual indicator level. I leveraged this fact to inform my variable-selection process. I started with a decision tree with the highest level variables (i.e. at the domain level), and used the variable importance chart from each decision tree to inform which variables to include in my next analysis. I gradually worked down from domain-level variables to the individual indicator variables, never including anything that was a product of or indicator for the gender equality variable. You can see more details about how this process went <a href=#dig-deeper class="link-on-gray">in the code</a>.
+        </p>
+        <h3>Pruning the Tree</h3>
+        <p>
+          Once I had drilled down to the lowest level of data granularity, I had a decision tree with high accuracy but 40 indicator variables. This situation seemed really dangerous and prone to overfitting, so I wanted to take steps to guard against that while still maintaining a highly accurate decision tree. To do this, I "pruned" the decision tree by keeping only the indicators whcih contributed to at least 1% of the total importance in decision making.
+        </p>
+        <h4>Calculating Accuracy</h4>
+        <p>
+          Something that was really important to the process of selecting a model and determining its accuracy was having both query data and test data to make decisions and conclusions with. While 60% of the total dataset was training data (that is, the data used to build up the decision tree models), 20% of the data was kept back as query data and another 20% as test data. The query data was used to estimate the accuracy of multiple decision tree models, and was a helpful tool in selecting which model to pursue. The test data never touched the model building process until the final model was selected, and at that point was used to estimate the accuracy of the decision tree by introducing "new" data to model and seeing how it fared. Accuracy was calculated in the usual way, dividing the number of correctly classified observations by the total number of observations.
+        </p>
+        <p>
+          I also wanted to create a measurement that, in a general sense, explained how often the decision tree was "close" in predicting the level of gender equality. For this, I added up all of the "successful classifications" to additionally include anything classified in a bin adjacent to its true value. For instance, not only correct predictions of observations in the (0.6, 0.8] bin were counted as successful predictions, but also observations whose true value was in that bin but were classified as being (0.4, 0.6] or (0.8, 1.0]. The total number of "successful classifications" was then divided by the total number of observations.
+        </p>
+        <h3>Final Tree</h3>
+        <p>
+          Ultimately, the final tree can be plotted as follows:
+        </p>
+        <img src="../assets/genderEqDecisionTree.png" alt="Decision Tree for Gender Equality" class="viz">
+        <p>
+          In case you don't have your cheat sheet<!--add link--> handy, the variables mentioned in this plot are:
+          <ul>
+            <li><code>v_22_06</code>: freedom of academic and cultural expression</li>
+            <li><code>v_22_31</code>: freedom of foreign movement</li>
+            <li><code>v_22_32</code>: CSO women's participation</li>
+            <li><code>v_23_06</code>: exclusion by socio-economic group (inverted)</li>
+            <li><code>v_23_07</code>: exlusion by political group index (inverted)</li>
+            <li><code>v_23_08</code>: exclusion by social group index (inverted)</li>
+            <li><code>v_23_09</code>: exclusion by urban/rural location index (inverted)</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+    <div>
+      <h2 id="dig-deeper">Dig Deeper</h2>
+      <div class="p-content">
+        <p>
+          Still want to see more of the process? Check out the full code on GitHub!
+        </p>
+        <div class="right">
+          <a href='https://github.com/ariel-j-w/GSoD-viz/blob/main/genderEquality.Rmd' class="deeper-link" target="_blank">
+            GitHub Project <span>&#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <footer></footer>
+</body>
